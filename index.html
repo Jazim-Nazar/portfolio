@@ -4,109 +4,86 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Jasim | Portfolio</title>
-  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600&family=Space+Grotesk:wght@400;600&display=swap" rel="stylesheet">
+
   <style>
-    * {
-      margin: 0;
-      padding: 0;
-      box-sizing: border-box;
-      font-family: 'Poppins', sans-serif;
+    *{margin:0;padding:0;box-sizing:border-box}
+
+    body{
+      font-family:Poppins,sans-serif;
+      background:radial-gradient(circle at top,#e6d6ff,#b388eb,#7b2cbf);
+      color:#1a1a1a;
+      overflow-x:hidden;
     }
 
-    body {
-      background: linear-gradient(135deg, #d9c6ff, #b388eb);
-      color: #2d2d2d;
-      overflow-x: hidden;
+    h1,h2,h3{font-family:'Space Grotesk',sans-serif}
+
+    nav{
+      position:fixed;top:0;width:100%;display:flex;justify-content:center;gap:20px;
+      padding:15px;background:rgba(255,255,255,0.15);backdrop-filter:blur(12px);z-index:1000
     }
 
-    header {
-      height: 100vh;
-      display: flex;
-      flex-direction: column;
-      justify-content: center;
-      align-items: center;
-      text-align: center;
+    nav a{text-decoration:none;color:#1a1a1a;position:relative}
+    nav a::after{content:"";position:absolute;width:0;height:2px;bottom:-3px;left:0;background:#7b2cbf;transition:.3s}
+    nav a:hover::after{width:100%}
+
+    header{
+      height:100vh;display:flex;flex-direction:column;justify-content:center;align-items:center;text-align:center;color:#fff;position:relative
     }
 
-    h1 {
-      font-size: 3rem;
+    .blob{
+      position:absolute;border-radius:50%;filter:blur(60px);opacity:.5;z-index:-1
     }
 
-    .typewriter {
-      margin-top: 10px;
-      font-size: 1.2rem;
-      color: #4a148c;
+    .blob1{width:300px;height:300px;background:#ffb3ff;top:10%;left:10%}
+    .blob2{width:250px;height:250px;background:#cdb4ff;bottom:10%;right:10%}
+
+    header h1{font-size:3.5rem}
+    .typewriter{margin-top:10px;font-size:1.3rem;color:#f3e8ff}
+    .hero-desc{margin-top:15px;max-width:500px;font-size:.95rem;opacity:.9}
+
+    .btn{
+      margin-top:25px;padding:12px 25px;border:none;background:#fff;color:#7b2cbf;
+      border-radius:30px;cursor:pointer;font-weight:600;transition:.3s
+    }
+    .btn:hover{transform:scale(1.05);background:#f3e8ff}
+
+    section{padding:80px 20px;max-width:1100px;margin:auto}
+
+    .card{
+      background:rgba(255,255,255,0.25);backdrop-filter:blur(15px);
+      border-radius:20px;padding:25px;margin:20px 0;transition:.3s
     }
 
-    nav {
-      position: fixed;
-      top: 0;
-      width: 100%;
-      display: flex;
-      justify-content: center;
-      background: rgba(255,255,255,0.2);
-      backdrop-filter: blur(10px);
-      padding: 10px;
-      z-index: 1000;
+    .card:hover{transform:translateY(-8px) scale(1.01);box-shadow:0 10px 30px rgba(0,0,0,.1)}
+
+    .skills span{
+      display:inline-block;background:#ffffff55;padding:8px 14px;margin:5px;border-radius:20px;font-size:.85rem
     }
 
-    nav a {
-      margin: 0 15px;
-      text-decoration: none;
-      color: #2d2d2d;
-      font-weight: 500;
-      transition: 0.3s;
+    .projects{display:grid;grid-template-columns:repeat(auto-fit,minmax(260px,1fr));gap:20px}
+
+    .project-card{position:relative;overflow:hidden;cursor:pointer}
+    .project-overlay{
+      position:absolute;inset:0;background:rgba(123,44,191,.9);color:#fff;
+      display:flex;flex-direction:column;justify-content:center;align-items:center;
+      opacity:0;transition:.3s;padding:20px;text-align:center
+    }
+    .project-card:hover .project-overlay{opacity:1}
+
+    .stats{display:flex;justify-content:space-around;flex-wrap:wrap}
+    .stat{margin:10px;text-align:center}
+    .stat h3{color:#7b2cbf}
+
+    .timeline{border-left:3px solid #7b2cbf;padding-left:20px}
+    .timeline div{margin-bottom:20px}
+
+    .fun-box{
+      text-align:center;padding:30px;border-radius:20px;
+      background:linear-gradient(135deg,#ffffff33,#ffffff11)
     }
 
-    nav a:hover {
-      color: #6a1b9a;
-    }
-
-    section {
-      padding: 80px 20px;
-      max-width: 1000px;
-      margin: auto;
-    }
-
-    .card {
-      background: rgba(255,255,255,0.4);
-      padding: 20px;
-      margin: 20px 0;
-      border-radius: 15px;
-      backdrop-filter: blur(10px);
-      transition: transform 0.3s;
-    }
-
-    .card:hover {
-      transform: translateY(-5px);
-    }
-
-    .projects {
-      display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-      gap: 20px;
-    }
-
-    footer {
-      text-align: center;
-      padding: 20px;
-      font-size: 0.9rem;
-    }
-
-    .btn {
-      margin-top: 20px;
-      padding: 10px 20px;
-      border: none;
-      background: #6a1b9a;
-      color: white;
-      border-radius: 20px;
-      cursor: pointer;
-      transition: 0.3s;
-    }
-
-    .btn:hover {
-      background: #4a148c;
-    }
+    footer{text-align:center;padding:30px;color:#fff;font-size:.9rem}
   </style>
 </head>
 <body>
@@ -115,91 +92,122 @@
   <a href="#about">About</a>
   <a href="#skills">Skills</a>
   <a href="#projects">Projects</a>
+  <a href="#journey">Journey</a>
   <a href="#contact">Contact</a>
 </nav>
 
 <header>
-  <h1>Hi, I'm Jasim</h1>
+  <div class="blob blob1"></div>
+  <div class="blob blob2"></div>
+
+  <h1>Jasim</h1>
   <div class="typewriter" id="type"></div>
-  <button class="btn" onclick="scrollToSection('projects')">View My Work</button>
+  <p class="hero-desc">I like building things that actually work in the real world. Still learning, still experimenting, but always trying to make something useful.</p>
+  <button class="btn" onclick="scrollToSection('projects')">Explore</button>
 </header>
 
 <section id="about">
   <h2>About Me</h2>
   <div class="card">
     <p>
-      I'm a Computer Science & Design student who enjoys building practical, user-focused solutions.
-      Currently exploring full-stack development and working on real-world projects.
+      I’m someone who enjoys figuring things out — whether it’s code, systems, or how to make ideas real.
+      I care more about *how something works* than just making it look good.
     </p>
+  </div>
+
+  <div class="card stats">
+    <div class="stat"><h3>3+</h3><p>Projects Built</p></div>
+    <div class="stat"><h3>∞</h3><p>Ideas Thinking About</p></div>
+    <div class="stat"><h3>1</h3><p>Goal: Get Better Daily</p></div>
   </div>
 </section>
 
 <section id="skills">
   <h2>Skills</h2>
-  <div class="card">
-    <p>HTML, CSS, JavaScript, Node.js, React (Learning), Django, C</p>
+  <div class="card skills">
+    <span>HTML</span><span>CSS</span><span>JavaScript</span>
+    <span>Node.js</span><span>React (Learning)</span>
+    <span>Django</span><span>C</span>
   </div>
 </section>
 
 <section id="projects">
   <h2>Projects</h2>
   <div class="projects">
-    <div class="card">
+
+    <div class="card project-card">
       <h3>Digital Lab Record System</h3>
-      <p>Web-based system to manage lab records with authentication.</p>
+      <p>Manage academic lab records digitally.</p>
+      <div class="project-overlay">
+        <p>Auth • Storage • Uploads</p>
+        <p>(Add GitHub + Live link here)</p>
+      </div>
     </div>
-    <div class="card">
+
+    <div class="card project-card">
       <h3>Diet Tracker</h3>
-      <p>Interactive diet tracking web app with creative UI.</p>
+      <p>Fun UI-based tracking app.</p>
+      <div class="project-overlay">
+        <p>UI Focus • Interactions</p>
+        <p>(Add demo link here)</p>
+      </div>
     </div>
+
+  </div>
+</section>
+
+<section id="journey">
+  <h2>My Journey</h2>
+  <div class="card timeline">
+    <div><h4>Started</h4><p>Got into CS & Design</p></div>
+    <div><h4>Exploring</h4><p>Learning web dev & building</p></div>
+    <div><h4>Now</h4><p>Trying to build real-world systems</p></div>
+  </div>
+</section>
+
+<section>
+  <div class="fun-box">
+    <h2>Random Fact</h2>
+    <p>I play football as a centre forward ⚽</p>
+    <p>Also, I overthink UI details way more than necessary.</p>
   </div>
 </section>
 
 <section id="contact">
   <h2>Contact</h2>
   <div class="card">
-    <p>Email: </p>
-    <p>LinkedIn: </p>
-    <p>GitHub: </p>
+    <p>Email: yourmail@gmail.com</p>
+    <p>LinkedIn: linkedin.com/in/yourname</p>
+    <p>GitHub: github.com/yourusername</p>
   </div>
 </section>
 
 <footer>
-  <p>© 2026 Jasim</p>
+  <p>© 2026 Jasim — still building</p>
 </footer>
 
 <script>
-  const text = ["CS Student", "Full Stack Learner", "Problem Solver"];
-  let i = 0;
-  let j = 0;
-  let currentText = '';
-  let isDeleting = false;
+  const text=["CS Student","Builder","Problem Solver","Footballer ⚽"];
+  let i=0,j=0,currentText='',isDeleting=false;
 
-  function typeEffect() {
-    if (i < text.length) {
-      if (!isDeleting && j <= text[i].length) {
-        currentText = text[i].substring(0, j++);
-      } else if (isDeleting && j >= 0) {
-        currentText = text[i].substring(0, j--);
-      }
+  function typeEffect(){
+    if(i<text.length){
+      if(!isDeleting&&j<=text[i].length){currentText=text[i].substring(0,j++)}
+      else if(isDeleting&&j>=0){currentText=text[i].substring(0,j--)}
 
-      document.getElementById("type").innerHTML = currentText;
+      document.getElementById("type").innerHTML=currentText;
 
-      if (j === text[i].length) isDeleting = true;
-      if (j === 0) {
-        isDeleting = false;
-        i++;
-      }
-    } else {
-      i = 0;
-    }
-    setTimeout(typeEffect, isDeleting ? 50 : 100);
+      if(j===text[i].length)isDeleting=true;
+      if(j===0){isDeleting=false;i++}
+    }else{i=0}
+
+    setTimeout(typeEffect,isDeleting?50:100)
   }
 
   typeEffect();
 
-  function scrollToSection(id) {
-    document.getElementById(id).scrollIntoView({ behavior: 'smooth' });
+  function scrollToSection(id){
+    document.getElementById(id).scrollIntoView({behavior:'smooth'})
   }
 </script>
 
