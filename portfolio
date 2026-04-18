@@ -1,0 +1,207 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Jasim | Portfolio</title>
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600&display=swap" rel="stylesheet">
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+      font-family: 'Poppins', sans-serif;
+    }
+
+    body {
+      background: linear-gradient(135deg, #d9c6ff, #b388eb);
+      color: #2d2d2d;
+      overflow-x: hidden;
+    }
+
+    header {
+      height: 100vh;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+      text-align: center;
+    }
+
+    h1 {
+      font-size: 3rem;
+    }
+
+    .typewriter {
+      margin-top: 10px;
+      font-size: 1.2rem;
+      color: #4a148c;
+    }
+
+    nav {
+      position: fixed;
+      top: 0;
+      width: 100%;
+      display: flex;
+      justify-content: center;
+      background: rgba(255,255,255,0.2);
+      backdrop-filter: blur(10px);
+      padding: 10px;
+      z-index: 1000;
+    }
+
+    nav a {
+      margin: 0 15px;
+      text-decoration: none;
+      color: #2d2d2d;
+      font-weight: 500;
+      transition: 0.3s;
+    }
+
+    nav a:hover {
+      color: #6a1b9a;
+    }
+
+    section {
+      padding: 80px 20px;
+      max-width: 1000px;
+      margin: auto;
+    }
+
+    .card {
+      background: rgba(255,255,255,0.4);
+      padding: 20px;
+      margin: 20px 0;
+      border-radius: 15px;
+      backdrop-filter: blur(10px);
+      transition: transform 0.3s;
+    }
+
+    .card:hover {
+      transform: translateY(-5px);
+    }
+
+    .projects {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+      gap: 20px;
+    }
+
+    footer {
+      text-align: center;
+      padding: 20px;
+      font-size: 0.9rem;
+    }
+
+    .btn {
+      margin-top: 20px;
+      padding: 10px 20px;
+      border: none;
+      background: #6a1b9a;
+      color: white;
+      border-radius: 20px;
+      cursor: pointer;
+      transition: 0.3s;
+    }
+
+    .btn:hover {
+      background: #4a148c;
+    }
+  </style>
+</head>
+<body>
+
+<nav>
+  <a href="#about">About</a>
+  <a href="#skills">Skills</a>
+  <a href="#projects">Projects</a>
+  <a href="#contact">Contact</a>
+</nav>
+
+<header>
+  <h1>Hi, I'm Jasim</h1>
+  <div class="typewriter" id="type"></div>
+  <button class="btn" onclick="scrollToSection('projects')">View My Work</button>
+</header>
+
+<section id="about">
+  <h2>About Me</h2>
+  <div class="card">
+    <p>
+      I'm a Computer Science & Design student who enjoys building practical, user-focused solutions.
+      Currently exploring full-stack development and working on real-world projects.
+    </p>
+  </div>
+</section>
+
+<section id="skills">
+  <h2>Skills</h2>
+  <div class="card">
+    <p>HTML, CSS, JavaScript, Node.js, React (Learning), Django, C</p>
+  </div>
+</section>
+
+<section id="projects">
+  <h2>Projects</h2>
+  <div class="projects">
+    <div class="card">
+      <h3>Digital Lab Record System</h3>
+      <p>Web-based system to manage lab records with authentication.</p>
+    </div>
+    <div class="card">
+      <h3>Diet Tracker</h3>
+      <p>Interactive diet tracking web app with creative UI.</p>
+    </div>
+  </div>
+</section>
+
+<section id="contact">
+  <h2>Contact</h2>
+  <div class="card">
+    <p>Email: </p>
+    <p>LinkedIn: </p>
+    <p>GitHub: </p>
+  </div>
+</section>
+
+<footer>
+  <p>© 2026 Jasim</p>
+</footer>
+
+<script>
+  const text = ["CS Student", "Full Stack Learner", "Problem Solver"];
+  let i = 0;
+  let j = 0;
+  let currentText = '';
+  let isDeleting = false;
+
+  function typeEffect() {
+    if (i < text.length) {
+      if (!isDeleting && j <= text[i].length) {
+        currentText = text[i].substring(0, j++);
+      } else if (isDeleting && j >= 0) {
+        currentText = text[i].substring(0, j--);
+      }
+
+      document.getElementById("type").innerHTML = currentText;
+
+      if (j === text[i].length) isDeleting = true;
+      if (j === 0) {
+        isDeleting = false;
+        i++;
+      }
+    } else {
+      i = 0;
+    }
+    setTimeout(typeEffect, isDeleting ? 50 : 100);
+  }
+
+  typeEffect();
+
+  function scrollToSection(id) {
+    document.getElementById(id).scrollIntoView({ behavior: 'smooth' });
+  }
+</script>
+
+</body>
+</html>
