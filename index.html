@@ -100,10 +100,41 @@
   <div class="blob blob1"></div>
   <div class="blob blob2"></div>
 
-  <h1>Jasim</h1>
-  <div class="typewriter" id="type"></div>
-  <p class="hero-desc">I like building things that actually work in the real world. Still learning, still experimenting, but always trying to make something useful.</p>
-  <button class="btn" onclick="scrollToSection('projects')">Explore</button>
+  <div style="max-width:900px;display:flex;flex-direction:column;align-items:center;gap:20px">
+    
+    <h1>Jasim</h1>
+
+    <div class="typewriter" id="type"></div>
+
+    <p class="hero-desc">
+      I like building things that actually work in the real world. Still learning, still experimenting — but always trying to turn ideas into something real.
+    </p>
+
+    <div style="display:flex;gap:15px;flex-wrap:wrap;justify-content:center;margin-top:10px">
+      <button class="btn" onclick="scrollToSection('projects')">Explore Work</button>
+      <button class="btn" onclick="scrollToSection('contact')" style="background:#7b2cbf;color:#fff">Contact Me</button>
+    </div>
+
+    <div style="display:flex;gap:30px;margin-top:30px;flex-wrap:wrap;justify-content:center">
+      <div style="text-align:center">
+        <h3>3+</h3>
+        <p style="font-size:0.8rem;opacity:0.8">Projects</p>
+      </div>
+      <div style="text-align:center">
+        <h3>CS</h3>
+        <p style="font-size:0.8rem;opacity:0.8">Student</p>
+      </div>
+      <div style="text-align:center">
+        <h3>⚽</h3>
+        <p style="font-size:0.8rem;opacity:0.8">Footballer</p>
+      </div>
+    </div>
+
+    <div style="margin-top:40px;font-size:0.8rem;opacity:0.7">
+      ↓ scroll to see more
+    </div>
+
+  </div>
 </header>
 
 <section id="about">
@@ -176,9 +207,9 @@
 <section id="contact">
   <h2>Contact</h2>
   <div class="card">
-    <p>Email: yourmail@gmail.com</p>
-    <p>LinkedIn: linkedin.com/in/yourname</p>
-    <p>GitHub: github.com/yourusername</p>
+    <p>Email: jasimmarrangattu@gmail.com</p>
+    <p>LinkedIn: linkedin.com/in/jasim-nazar</p>
+    <p>GitHub: github.com/jasim-nazar</p>
   </div>
 </section>
 
@@ -201,7 +232,7 @@
       if(j===0){isDeleting=false;i++}
     }else{i=0}
 
-    setTimeout(typeEffect,isDeleting?50:100)
+    setTimeout(typeEffect,isDeleting?100:200);
   }
 
   typeEffect();
@@ -213,3 +244,4 @@
 
 </body>
 </html>
+
